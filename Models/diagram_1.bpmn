@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08039fb" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <bpmn:process id="Process_09xncej" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" />
+    <bpmn:businessRuleTask id="Activity_1cm1t0u" name="Select eligible">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="Definitions_0yf784d" resultVariable="Eligible" />
+        <zeebe:ioMapping>
+          <zeebe:input source="" target="Pregnant" />
+          <zeebe:input source="" target="Disease" />
+          <zeebe:input source="" target="Gender" />
+          <zeebe:input source="" target="Age" />
+          <zeebe:output source="" target="Eligible" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1b9ge4n</bpmn:incoming>
+      <bpmn:outgoing>Flow_08tf2hc</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:serviceTask id="Activity_0s109v6" name="get List">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:input source="" target="InputVariable_35i6cph" />
+        </zeebe:ioMapping>
+        <zeebe:taskDefinition type="Mail" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_1b9ge4n</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1b9ge4n" sourceRef="Activity_0s109v6" targetRef="Activity_1cm1t0u" />
+    <bpmn:sequenceFlow id="Flow_08tf2hc" sourceRef="Activity_1cm1t0u" targetRef="Activity_107muu8" />
+    <bpmn:sendTask id="Activity_107muu8" name="send Mail">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:input source="" target="InputVariable_2i3qait" />
+          <zeebe:output source="" target="OutputVariable_13ckt04" />
+        </zeebe:ioMapping>
+        <zeebe:taskDefinition type="Mail" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_08tf2hc</bpmn:incoming>
+    </bpmn:sendTask>
+    <bpmn:serviceTask id="Activity_0coqqbh">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:input source="" target="InputVariable_2e65pv0" />
+          <zeebe:output source="" target="OutputVariable_3q95aha" />
+        </zeebe:ioMapping>
+        <zeebe:properties>
+          <zeebe:property />
+        </zeebe:properties>
+        <zeebe:taskHeaders>
+          <zeebe:header />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_09xncej">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="359" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0h94idr_di" bpmnElement="Activity_1cm1t0u">
+        <dc:Bounds x="530" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lnrbjv_di" bpmnElement="Activity_0s109v6">
+        <dc:Bounds x="320" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1t764h9_di" bpmnElement="Activity_107muu8">
+        <dc:Bounds x="750" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06cu78t_di" bpmnElement="Activity_0coqqbh">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1b9ge4n_di" bpmnElement="Flow_1b9ge4n">
+        <di:waypoint x="420" y="470" />
+        <di:waypoint x="530" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08tf2hc_di" bpmnElement="Flow_08tf2hc">
+        <di:waypoint x="630" y="470" />
+        <di:waypoint x="750" y="470" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
