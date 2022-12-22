@@ -107,9 +107,9 @@ The Automatisation happened with MAKE and we integrated HubSpot for meeting sche
 # Risks 
 Every project is connected to risks, so we decided to include 3 key risks in order to have them present and to prevent them:
 
-![](Project%Documentation/Risks.png)
+![ProjectDocumentation](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/Risks.png)
 Accordingly we had a Risk Matrix with two high risks and one medium risk.
-![](Project%Documentation/RiskMatrix.png)
+![ProjectDocumentation](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/RiskMatrix.png)
 
 # Data Privacy (Disclaimer):
 For this project we are aware that the process is handling personal sensitive data according to the Federal Act on Data Protection (FADP). We are aware of the risks that could occur such as breach of secrecy, breach of confidentiality, violation of integrity and missing availability.
@@ -195,6 +195,6 @@ If we would have more time we would have enhanced the model and especially with 
 
 In addition to that we could include more flexibility for drop outs during the recruitment process with an event subprocess i.e.: 
 
-![](Project%Documentation/FleixlbeEventSubprocess.png)
+![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/FleixlbeEventSubprocess.png)
 
 If we would want to switch then to the productive environment we would have to fulfill all the data privacy and data protection regulations in order to stay compliant.  In order to do this we should then switch to pryv or other tools supporting this. 
