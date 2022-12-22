@@ -145,6 +145,8 @@ Nevertheless we have decided to use Camunda, Make and especially Google Sheets w
 
 # “To be process”:
 
+![Project Documentation](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/To-be%20Process.png)
+
 **Black Box “Trial Participant”:** 
 The participant is our external participant to our process and the key actor. 
 The potential participant is aimed to be recruited for the clinical trial and most interactions are going to concern him/her.
