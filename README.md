@@ -174,12 +174,27 @@ In the following step, the eligibility data is stored in a google sheets fil and
 
 
 Following the DMN, there is an Or gate which immediatly ends the process Instance, if the Participant is not Eligible.
-If he is Eligible, the potential Participant will be informed by an automated Mail Invoice. The Mail also provides the participant with a scheduling assisstant , for the mandatory Health Checkup.
+If he is Eligible, the potential Participant will be informed by an automated Mail Invoice. The Mail also provides the participant with a scheduling assisstant , for the mandatory Health Checkup. The Scheduling assisstnat was implementet with Hubspot.
 ![grafik](https://user-images.githubusercontent.com/115709906/209116225-4bd6a660-f57d-4faf-ad19-f6170544f783.png)
 
 ![grafik](https://user-images.githubusercontent.com/115709906/209116419-2b7191a6-db70-460a-8f6b-229ce606e02c.png)
 
 
+# Database Search
+
+Alternatively to the automated Forms Application, it is possible to perfom a search of an existing database, to find and contact potential participants. The database search is triggered manually in Integromat. Integromat Iterates through the file and decides who is eligible or not. The elegibile participants are automatically informed via mail, and asked to participate The trial. The database search is implemented in Integromat Via a repeater and a Few Google Sheets Modules which iterate through the File and decide if eligible or not
+
+
+TheLogic for eligible or not is written in Query Language in a Google Sheets Module:
+
+![grafik](https://user-images.githubusercontent.com/115709906/209116722-08167ca5-a968-42cc-a1e2-92b747d30116.png)
+
+Non Eligible Participant drop out at the Router. Eligible Particpants get a mail and an invitation for the clinical trial.
+
+After the participant is contacted, the medical checkup is done by a doctor/medical Team. The process instance waits before an Event-base Gate Way.
+
+
+![grafik](https://user-images.githubusercontent.com/115709906/209117599-963a2c94-d001-456f-8743-95664a8fd227.png)
 
 
 
