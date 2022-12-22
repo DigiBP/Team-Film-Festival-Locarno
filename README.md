@@ -33,9 +33,18 @@ Riad Beqiri, Janick Marti, Pawanpreet Kaur, Navneet Kaur
 
 # Links to Deliverables
 
+**Models**
 - [As-Is Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/AS-IS%20DBP%20Clinical%20Trial%20Recruitment.bpmn)
 - [To-Be Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/BPM%20_Main.bpmn)
 - [DMN Check out form](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/Check%20filled%20out%20form.dmn)
+
+**PowerPoint Presentiation**
+- [PowerPoint Presentation](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Presentation/DBP%20-%20Clinical%20Trial%20Recruitment.pptx)
+
+**Video Presentations**
+- [Start Google Forms I](https://fhnw365.sharepoint.com/:v:/r/teams/W-AS22_MSc_MI_DigiBP_M365-TeamFilmFestivalLocarno/Freigegebene%20Dokumente/Team%20Film%20Festival%20Locarno/Presentation/Start%20Google%20Forms.webm?csf=1&web=1&e=djihve)
+- [Start Google Forms II](https://fhnw365.sharepoint.com/:v:/r/teams/W-AS22_MSc_MI_DigiBP_M365-TeamFilmFestivalLocarno/Freigegebene%20Dokumente/Team%20Film%20Festival%20Locarno/Presentation/Start%20Google%20Forms%20II.webm?csf=1&web=1&e=bBEvFX)
+- [Start Database Search](https://fhnw365.sharepoint.com/:v:/r/teams/W-AS22_MSc_MI_DigiBP_M365-TeamFilmFestivalLocarno/Freigegebene%20Dokumente/Team%20Film%20Festival%20Locarno/Presentation/Start%20Database%20Search.webm?csf=1&web=1&e=AMQi9Q)
 
 
 # "As-Is Process"
@@ -157,26 +166,27 @@ On one hand there's an automatic start event, which triggers when a google Forms
 For demonstartion purposes we defined three critical Attributes, which decide the eligibility. For this example Participants are only eligible, when they are between 20 and 40 years old, when they dont smoke and when they dont suffer from Diabetes.  Of Course these Rules change depending on the scope and subjet of the clinical trial. The DMN is modeled with the hit policy "unique", which means every possible Outcome has to be defined. The Output variable "Eligible" is saved in a separate file,the Eligibility List. Ontop of the elegibility, each participant is also assigned an ID in this file, which is implemented via Integromat.
 
 The Make Application Looks like this:
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/6.PNG)
+
+![grafik](https://user-images.githubusercontent.com/115709906/209114343-cfa428d9-8328-488f-b263-beaba2af76c1.png)
 
 A Watcher from Google Sheets looks for Changes in the Google Forms Response Sheet. As soon as a new Forms is filled out. The Startmessage event
- "Google" Forms will be activated by a message reuqest.
+ "Google" Forms will be activated by a Message Reuqest.
 
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/7.PNG)
 
-The following requestcall starts the "Send Elgibility external Task"-service task and gets the output from the DMN table. The Patient ID is set by a combination of a letter ( A in case of an application from forms, B for a manual data research) and the row number from the ApplicationResponse File/Database File.
+![grafik](https://user-images.githubusercontent.com/115709906/209115673-e645a4bd-769c-4cac-9447-046075005f55.png)
 
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/ID.PNG)
+The following requestcall starts the "Send Elgibilitto external Task"-service task and gets the output from the DMN table. The Patient ID is set by a combination of a letter ( A in case of an application from forms, B for a manual data research) and the row number from the ApplicationResponse File/Database File
 
 In the following step, the eligibility data is stored in a google sheets fil and the participants get a MailInvoice if they are Eligible or not.
 
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/8.PNG)
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/9.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209115892-706d4274-ed53-408b-8eaa-50cdf01f1376.png)
+
 
 Following the DMN, there is an Or gate which immediatly ends the process Instance, if the Participant is not Eligible.
-If he is Eligible, the potential Participant will be informed by an automated Mail Invoice. The Mail also provides the participant with a scheduling assisstant , for the mandatory Health Checkup. The Scheduling assisstant was implementet with Hubspot.
+If he is Eligible, the potential Participant will be informed by an automated Mail Invoice. The Mail also provides the participant with a scheduling assisstant , for the mandatory Health Checkup. The Scheduling assisstnat was implementet with Hubspot.
+![grafik](https://user-images.githubusercontent.com/115709906/209116225-4bd6a660-f57d-4faf-ad19-f6170544f783.png)
 
-![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/10.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209116419-2b7191a6-db70-460a-8f6b-229ce606e02c.png)
 
 
 # Database Search
@@ -186,37 +196,36 @@ Alternatively to the automated Forms Application, it is possible to perfom a sea
 
 TheLogic for eligible or not is written in Query Language in a Google Sheets Module:
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/11.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209116722-08167ca5-a968-42cc-a1e2-92b747d30116.png)
 
 Non Eligible Participant drop out at the Router. Eligible Particpants get a mail and an invitation for the clinical trial.
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/12.PNG)
+After the participant is contacted, the medical checkup is done by a doctor/medical Team. The process instance waits before an Event-base Gate Way.
 
-After the participant is contacted, the medical checkup is done by a doctor/medical Team. The process instance waits before an Event-based Gate-Way.
-
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/1.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209117599-963a2c94-d001-456f-8743-95664a8fd227.png)
 
 There are three possible Scenarios.
 1. The report from the medical Data Arrives and the Participant is declared "qualified" by the doctor. For this case, an intermediatcatchMessenger Events awaits a Mail from the Medical team. Only Mails with a predefined subject are accepted. The external worker waits can extract medical data that was sent by the Doctor. For demonstration purposes, a simple JSON file was used for this.
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/14.PNG)
-
+![grafik](https://user-images.githubusercontent.com/115709906/209118243-5f0786db-7e84-446c-8c25-7d73d6a2caf2.png)
 The Patient ID is sent, aswell as the information, if the participant is qualified or not. In case of Qualified:"Yes. The participant will be added to the "Registered Participants"-List, and the next task will be invoked.
 
 2. If The medical Report defines the participant as not Qualified. The corresponding Message event is triggered, which leads to an End event. The participant is informed via Mail
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/15.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209118171-46a8af1a-ffa1-4ddf-b47d-9a07c64335ae.png)
 
 3. The last possibility of the Event Gate: The participant does not show up to the medical Checkup. In that Case, a timerbased Event automatically cancels the instance, when no Data comes from the doctor for a certain Time
 
+![grafik](https://user-images.githubusercontent.com/115709906/209118291-51d653e6-05fa-4781-a9b5-5f37004f5d47.png)
+
 If The participants are registered. They will be provided with further Details about the Trial Process like a form to verify the participation. 
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/16.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209117875-6e9368c2-c9c7-4a06-83d9-35e241deaf07.png)
 
 After this, the instance is ended and the recruitment Process is ended.
 In Integromat This Event Based gateway is Implemented as follows:
 
-![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/4.PNG)
+![grafik](https://user-images.githubusercontent.com/115709906/209119150-81c576f6-3c15-4193-9164-d0b9d87d66da.png)
 
 From the doctors mail, the JSON Data is directly extracted to verify which participant is medically qualified for the Trial. Non qualified participant trigger the" Not Qualified" MessageIntermediate Event, which leads to a Mailinvoice. Qualifed participants are stored in the "registered participants"File and get a Mail with further Info regarding the Trial.
 
@@ -245,58 +254,6 @@ The task is initiated with a fetchAndLock Request and completed with a task comp
 ![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/7.PNG)
 
 The Mail Invoice is implemented with Integromat wich is connected to Gmail via API.
-
-
-**Black Box “Trial Participant”:** 
-The participant is our external participant to our process and the key actor. 
-The potential participant is aimed to be recruited for the clinical trial and most interactions are going to concern him/her.
-
-**Black Box: “Doctor”:**
-The Doctor is the one who will conduct a health check with the potential participant in order to manifest his eligibility for the clinical trial. He actually could be an internal participant but since the doctor is going to do the health check manually and we as HR Team do not actually know what and how it is going to be executed by the doctor we decided to keep it as a blackbox.
-
-**Pool “Clinical Trial Department”:**
-The Pool is the Clinical Trial Department which is responsible for all topics concerning Clinical Trials.
-
-**Lanes “Human Resource Team”:**
-Within the Pool we decided to have one lane (not fully necessary) to identify the specific team within the department. In our case it is the Human Resource (HR) Team which is responsible for the process. 
-
-**Start Events**
-
-**Start Event “Filled out form”:**
-The process starts when a potential participant fills out the Google Forms and submits it. 
-
-**Service Task “Get Application Data”:**
-In this step, an HR Team member checks out the filled out form manually and compares it to the eligibility criterias. 
-
-**Data Object “Application Data”:**
-…
-
-**Business Rule Task “Decide if Eligible”:**
-…
- 
-
-**Data Object “Eligibility List”:**
-…
-
-**Exclusive Gateway:**
-… 
-
-**Service Task “Contact participant”**
-…
-
-**Event-based Gateway**
-
-**Intermediate Catching Message Event “Not qualified”**
-On this catching event the HR Team will receive a message from the doctor that the person is not qualified for the clinical trial and therefore the recruitment is going to be cancelled.
-
-**Intermediate Catching Message Event “Does not show up”**
-On this catching event the HR Team will receive a message from the doctor that the person did not show up for the clinical trial health check and therefore the recruitment is going to be cancelled.
-
-**Intermediate Catching Message Event “Qualified”**
-On this catching event the HR Team will receive a message from the doctor with the report attached that the person is qualified to participate to the clinical trial. 
-
-**Task “Give further instructions”**
-…
 
 #  Vision:
 
