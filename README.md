@@ -151,13 +151,20 @@ This is the To be Process, our running BPM:
 
 The first part of the BPM consists of two MessageStartEvents.
 
-On one hand there's an automatic start event, which triggers when a google Forms Application is submitted. The Application Data is Saved as a File.  The Task GetApplicationData is invoked by a external Integromat Worker which subscribes to the task. Next, the Applications are evaluated and sorted into eligible and not eligible. This is done Via DMN:![grafik](https://user-images.githubusercontent.com/115709906/209114119-77f6e173-e85b-4aa6-9678-eb6015bee3f3.png)
+On one hand there's an automatic start event, which triggers when a google Forms Application is submitted. The Application Data is Saved as a File.  The Task GetApplicationData is invoked by a external Integromat Worker which subscribes to the task. Next, the Applications are evaluated and sorted into eligible and not eligible. This is done Via DMN:
+![grafik](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/3.PNG)
 
 For demonstartion purposes we defined three critical Attributes, which decide the eligibility. For this example Participants are only eligible, when they are between 20 and 40 years old, when they dont smoke and when they dont suffer from Diabetes.  Of Course these Rules change depending on the scope and subjet of the clinical trial. The DMN is modeled with the hit policy "unique", which means every possible Outcome has to be defined. The Output variable "Eligible" is saved in a separate file,the Eligibility List. Ontop of the elegibility, each participant is also assigned an ID in this file, which is implemented via Integromat.
 
 The Make Application Looks like this:
 
 ![grafik](https://user-images.githubusercontent.com/115709906/209114343-cfa428d9-8328-488f-b263-beaba2af76c1.png)
+
+A Watcher from Google Sheets looks for Changes in the Google Forms Response Sheet. As soon as a new Forms is filled out. The Startmessage event
+ "Google" Forms will be activated by a Message Reuqest.
+
+
+![grafik](https://user-images.githubusercontent.com/115709906/209115673-e645a4bd-769c-4cac-9447-046075005f55.png)
 
 
 
