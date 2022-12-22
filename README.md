@@ -246,58 +246,6 @@ The task is initiated with a fetchAndLock Request and completed with a task comp
 
 The Mail Invoice is implemented with Integromat wich is connected to Gmail via API.
 
-
-**Black Box “Trial Participant”:** 
-The participant is our external participant to our process and the key actor. 
-The potential participant is aimed to be recruited for the clinical trial and most interactions are going to concern him/her.
-
-**Black Box: “Doctor”:**
-The Doctor is the one who will conduct a health check with the potential participant in order to manifest his eligibility for the clinical trial. He actually could be an internal participant but since the doctor is going to do the health check manually and we as HR Team do not actually know what and how it is going to be executed by the doctor we decided to keep it as a blackbox.
-
-**Pool “Clinical Trial Department”:**
-The Pool is the Clinical Trial Department which is responsible for all topics concerning Clinical Trials.
-
-**Lanes “Human Resource Team”:**
-Within the Pool we decided to have one lane (not fully necessary) to identify the specific team within the department. In our case it is the Human Resource (HR) Team which is responsible for the process. 
-
-**Start Events**
-
-**Start Event “Filled out form”:**
-The process starts when a potential participant fills out the Google Forms and submits it. 
-
-**Service Task “Get Application Data”:**
-In this step, an HR Team member checks out the filled out form manually and compares it to the eligibility criterias. 
-
-**Data Object “Application Data”:**
-…
-
-**Business Rule Task “Decide if Eligible”:**
-…
- 
-
-**Data Object “Eligibility List”:**
-…
-
-**Exclusive Gateway:**
-… 
-
-**Service Task “Contact participant”**
-…
-
-**Event-based Gateway**
-
-**Intermediate Catching Message Event “Not qualified”**
-On this catching event the HR Team will receive a message from the doctor that the person is not qualified for the clinical trial and therefore the recruitment is going to be cancelled.
-
-**Intermediate Catching Message Event “Does not show up”**
-On this catching event the HR Team will receive a message from the doctor that the person did not show up for the clinical trial health check and therefore the recruitment is going to be cancelled.
-
-**Intermediate Catching Message Event “Qualified”**
-On this catching event the HR Team will receive a message from the doctor with the report attached that the person is qualified to participate to the clinical trial. 
-
-**Task “Give further instructions”**
-…
-
 #  Vision:
 
 If we would have more time we would have enhanced the model and especially with additional tasks such as going after the potential participants which did not show up for the doctors appointment. 
