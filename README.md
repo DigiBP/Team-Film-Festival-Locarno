@@ -188,8 +188,29 @@ If he is Eligible, the potential Participant will be informed by an automated Ma
 
 ![grafik](https://user-images.githubusercontent.com/115709906/209116419-2b7191a6-db70-460a-8f6b-229ce606e02c.png)
 
+**Hubspot**
+We decided to use Hubspot since it is a really flexible scheduling tool for meeting proposals since it is directly linked with the email so in our case with the email from the doctor. 
+
+As you can see in the image below it is possible to describe how the confirmation of the scheduling email looks like and what is going to be sent out to the participant after he then books an appointment.
+
+![HubSpot_Übersicht](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/HubSpotBearbeiten.png)
+
+In addition to that it is possible for the doctor to define how long a schedule should be and within what time periods he/she is available.
+
+![HS_Meetings](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/Meetings.png)
+
+Further more it is even possible for the doctor to define if there should be any reminder.
+
+![HS_Automatisierung](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/Automation.png)
+
+Last but not least from a participants perspective as soon as he clicks on the link provided in the mail after the confirmation of eligbility he can define a timespace in which he want to have the appointment with the doctor.
+
+![HS_Scheduling](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/Scheduling.png)
 
 # Database Search
+
+*Before we start describing the Database Search part it is to mention that we explicitly included this part. From research and different mutual sources we got the information that companies are often only recruiting new participants and not participants from older clinical trials. The aim of this database is to have older successfully conducted participants in order to recruit then the right people with the intention that they may be always interested to support health and due to their motivation and past to ensure that they will not be a lot of dropouts* 
+
 
 Alternatively to the automated Forms Application, it is possible to perfom a search of an existing database, to find and contact potential participants. The database search is triggered manually in Integromat. Integromat Iterates through the file and decides who is eligible or not. The elegibile participants are automatically informed via mail, and asked to participate The trial. The database search is implemented in Integromat Via a repeater and a Few Google Sheets Modules which iterate through the File and decide if eligible or not
 
