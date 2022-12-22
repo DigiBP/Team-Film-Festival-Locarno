@@ -31,6 +31,12 @@ Therefore as we can clearly see there is a need for participants to be recruited
 
 Riad Beqiri, Janick Marti, Pawanpreet Kaur, Navneet Kaur
 
+# Links to Deliverables
+
+[As-Is Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/AS-IS%20DBP%20Clinical%20Trial%20Recruitment.bpmn)
+
+
+
 # "As-Is Process"
 
 ![Project Documentation](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Project%20Documentation/AS-IS%20Process.png)
