@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Checkapplication" name="Checkapplication" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.6.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <decision id="EligibilityDMN" name="EligibilityDMN">
+    <decisionTable id="DecisionTable_17e9obq">
+      <input id="Input_1" label="Age" biodi:width="192" camunda:inputVariable="Age">
+        <inputExpression id="InputExpression_1" typeRef="integer" expressionLanguage="feel">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_08gxdp1" label="Diabetes" camunda:inputVariable="Diabetes">
+        <inputExpression id="LiteralExpression_0nkauh7" typeRef="string">
+          <text>Diabetes</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1941zgj">
+          <text>"Yes","No"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0h2nl1o" label="Smokes" camunda:inputVariable="Pregnant">
+        <inputExpression id="LiteralExpression_0345uyf" typeRef="string">
+          <text>Smokes</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0dtt7yw">
+          <text>"Yes","No"</text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="Eligible" name="Eligible" typeRef="string">
+        <outputValues id="UnaryTests_0hcona8">
+          <text>"Eligible"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0cybpca">
+        <inputEntry id="UnaryTests_1qhu6by">
+          <text>&gt;=20 and &lt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hbq3ju">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oa7t3e">
+          <text>"Yes"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_094dadw">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rzppro">
+        <inputEntry id="UnaryTests_0ilwjf3">
+          <text>&gt;=20 and &lt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b0zf37">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pddr5q">
+          <text>"No"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vyxi26">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uebl4q">
+        <inputEntry id="UnaryTests_07tjp1a">
+          <text>&gt;=20 and &lt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05s5sar">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hq0jly">
+          <text>"No"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0adpq9o">
+          <text>"Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zly595">
+        <inputEntry id="UnaryTests_0vz2fgs">
+          <text>&gt;=20 and &lt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rjihht">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17eg0os">
+          <text>"Yes"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19fjkbt">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bvqcq5">
+        <inputEntry id="UnaryTests_04pe5qs">
+          <text>&lt;=20 or &gt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bw52l2">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00p6j64">
+          <text>"Yes"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y7qq3o">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04q6vrw">
+        <inputEntry id="UnaryTests_0zgvvbk">
+          <text>&lt;=20 or &gt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00s32mc">
+          <text>"Yes"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vaus3v">
+          <text>"No"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bp171x">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1779j4b">
+        <inputEntry id="UnaryTests_1urh42v">
+          <text>&lt;=20 or &gt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08e14tp">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06f64kb">
+          <text>"Yes"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pqowhr">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e3pxpc">
+        <inputEntry id="UnaryTests_1hx1ea5">
+          <text>&lt;=20 or &gt;=40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15en5g9">
+          <text>"No"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06au35k">
+          <text>"No"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tzidty">
+          <text>"Not Eligible"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="EligibilityDMN">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
