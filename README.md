@@ -188,7 +188,9 @@ If he is Eligible, the potential Participant will be informed by an automated Ma
 
 ![grafik](https://user-images.githubusercontent.com/115709906/209116419-2b7191a6-db70-460a-8f6b-229ce606e02c.png)
 
+
 **Hubspot**
+
 We decided to use Hubspot since it is a really flexible scheduling tool for meeting proposals since it is directly linked with the email so in our case with the email from the doctor. 
 
 As you can see in the image below it is possible to describe how the confirmation of the scheduling email looks like and what is going to be sent out to the participant after he then books an appointment.
