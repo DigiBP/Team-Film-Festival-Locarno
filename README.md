@@ -33,9 +33,9 @@ Riad Beqiri, Janick Marti, Pawanpreet Kaur, Navneet Kaur
 
 # Links to Deliverables
 
-[As-Is Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/AS-IS%20DBP%20Clinical%20Trial%20Recruitment.bpmn)
-[To-Be Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/BPM%20_Main.bpmn)
-[DMN Check out form](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/Check%20filled%20out%20form.dmn)
+- [As-Is Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/AS-IS%20DBP%20Clinical%20Trial%20Recruitment.bpmn)
+- [To-Be Process](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/BPM%20_Main.bpmn)
+- [DMN Check out form](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Models/Check%20filled%20out%20form.dmn)
 
 
 # "As-Is Process"
