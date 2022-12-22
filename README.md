@@ -220,20 +220,31 @@ In Integromat This Event Based gateway is Implemented as follows:
 
 From the doctors mail, the JSON Data is directly extracted to verify which participant is medically qualified for the Trial. Non qualified participant trigger the" Not Qualified" MessageIntermediate Event, which leads to a Mailinvoice. Qualifed participants are stored in the "registered participants"File and get a Mail with further Info regarding the Trial.
 
+# Integromat Implementaiton
 
 In this Paragraph, the events and tasks as well as their Integration will be discussed in more Detail.
 
 Message Events: There are a total of 4 Message events  in this Model:
 
+![q](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/17.PNG)
+![w](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/18.PNG)
+
 The startevents is setup with a messag ename, which can be triggered with a post request.
 
 The Intermediate Catch events have an Instance specific Name. This is realized by adding the ID of the participant to the Messagename. Since the ID is Uniqe, this ensures the right Allocation of the instances to their respective Messagevents.
 
-![grafik](https://user-images.githubusercontent.com/115709906/209119408-283c64f5-5fca-4188-8df8-f40285355ea4.png)
+![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/13.PNG)
 
-![grafik](https://user-images.githubusercontent.com/115709906/209119246-7fdf63eb-c150-48b0-8301-32cd48c822c0.png)
+To realize external tasks, Service Tasks are used.
+A topic is defined, which a worker can subscribe to.
 
+![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/20.PNG)
 
+The task is initiated with a fetchAndLock Request and completed with a task compelete- request
+![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/21.PNG)
+![](https://github.com/DigiBP/Team-Film-Festival-Locarno/blob/main/Screenshots/7.PNG)
+
+The Mail Invoice is implemented with Integromat wich is connected to Gmail via API.
 
 
 **Black Box “Trial Participant”:** 
