@@ -193,8 +193,45 @@ Non Eligible Participant drop out at the Router. Eligible Particpants get a mail
 
 After the participant is contacted, the medical checkup is done by a doctor/medical Team. The process instance waits before an Event-base Gate Way.
 
-
 ![grafik](https://user-images.githubusercontent.com/115709906/209117599-963a2c94-d001-456f-8743-95664a8fd227.png)
+
+There are three possible Scenarios.
+1. The report from the medical Data Arrives and the Participant is declared "qualified" by the doctor. For this case, an intermediatcatchMessenger Events awaits a Mail from the Medical team. Only Mails with a predefined subject are accepted. The external worker waits can extract medical data that was sent by the Doctor. For demonstration purposes, a simple JSON file was used for this.
+
+![grafik](https://user-images.githubusercontent.com/115709906/209118243-5f0786db-7e84-446c-8c25-7d73d6a2caf2.png)
+The Patient ID is sent, aswell as the information, if the participant is qualified or not. In case of Qualified:"Yes. The participant will be added to the "Registered Participants"-List, and the next task will be invoked.
+
+2. If The medical Report defines the participant as not Qualified. The corresponding Message event is triggered, which leads to an End event. The participant is informed via Mail
+
+![grafik](https://user-images.githubusercontent.com/115709906/209118171-46a8af1a-ffa1-4ddf-b47d-9a07c64335ae.png)
+
+3. The last possibility of the Event Gate: The participant does not show up to the medical Checkup. In that Case, a timerbased Event automatically cancels the instance, when no Data comes from the doctor for a certain Time
+
+![grafik](https://user-images.githubusercontent.com/115709906/209118291-51d653e6-05fa-4781-a9b5-5f37004f5d47.png)
+
+If The participants are registered. They will be provided with further Details about the Trial Process like a form to verify the participation. 
+
+![grafik](https://user-images.githubusercontent.com/115709906/209117875-6e9368c2-c9c7-4a06-83d9-35e241deaf07.png)
+
+After this, the instance is ended and the recruitment Process is ended.
+In Integromat This Event Based gateway is Implemented as follows:
+
+![grafik](https://user-images.githubusercontent.com/115709906/209119150-81c576f6-3c15-4193-9164-d0b9d87d66da.png)
+
+From the doctors mail, the JSON Data is directly extracted to verify which participant is medically qualified for the Trial. Non qualified participant trigger the" Not Qualified" MessageIntermediate Event, which leads to a Mailinvoice. Qualifed participants are stored in the "registered participants"File and get a Mail with further Info regarding the Trial.
+
+
+In this Paragraph, the events and tasks as well as their Integration will be discussed in more Detail.
+
+Message Events: There are a total of 4 Message events  in this Model:
+
+The startevents is setup with a messag ename, which can be triggered with a post request.
+
+The Intermediate Catch events have an Instance specific Name. This is realized by adding the ID of the participant to the Messagename. Since the ID is Uniqe, this ensures the right Allocation of the instances to their respective Messagevents.
+
+![grafik](https://user-images.githubusercontent.com/115709906/209119408-283c64f5-5fca-4188-8df8-f40285355ea4.png)
+
+![grafik](https://user-images.githubusercontent.com/115709906/209119246-7fdf63eb-c150-48b0-8301-32cd48c822c0.png)
 
 
 
