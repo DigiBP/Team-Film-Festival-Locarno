@@ -143,7 +143,7 @@ As we saw in the Lecture 7th Lecture of the Course Digitalisation of Business Pr
 
 Nevertheless we have decided to use Camunda, Make and especially Google Sheets with the argumentation that we are operating in a developing (DEV) environment with fictional data. 
 
-# “To be process”:
+# “To be process”: Main BPM Process
 
 This is the To be Process, our running BPM:
 
@@ -165,6 +165,22 @@ A Watcher from Google Sheets looks for Changes in the Google Forms Response Shee
 
 
 ![grafik](https://user-images.githubusercontent.com/115709906/209115673-e645a4bd-769c-4cac-9447-046075005f55.png)
+
+The following requestcall starts the "Send Elgibilitto external Task"-service task and gets the output from the DMN table. The Patient ID is set by a combination of a letter ( A in case of an application from forms, B for a manual data research) and the row number from the ApplicationResponse File/Database File
+
+In the following step, the eligibility data is stored in a google sheets fil and the participants get a MailInvoice if they are Eligible or not.
+
+![grafik](https://user-images.githubusercontent.com/115709906/209115892-706d4274-ed53-408b-8eaa-50cdf01f1376.png)
+
+
+Following the DMN, there is an Or gate which immediatly ends the process Instance, if the Participant is not Eligible.
+If he is Eligible, the potential Participant will be informed by an automated Mail Invoice. The Mail also provides the participant with a scheduling assisstant , for the mandatory Health Checkup.
+![grafik](https://user-images.githubusercontent.com/115709906/209116225-4bd6a660-f57d-4faf-ad19-f6170544f783.png)
+
+![grafik](https://user-images.githubusercontent.com/115709906/209116419-2b7191a6-db70-460a-8f6b-229ce606e02c.png)
+
+
+
 
 
 
